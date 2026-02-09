@@ -27,7 +27,7 @@ export function Hero() {
                 <div className="absolute inset-0 z-0">
                     <div className="absolute inset-0 bg-black/60 z-10" />
                     <img
-                        src="/md-salon/images/salon-hero.jpg"
+                        src="/images/salon-hero.jpg"
                         alt="Salon Background"
                         className="w-full h-full object-cover opacity-80"
                     />

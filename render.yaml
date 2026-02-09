@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: md-salon
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./out

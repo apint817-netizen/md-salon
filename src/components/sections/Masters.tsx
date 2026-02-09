@@ -9,7 +9,7 @@ const masters = [
         name: "Елена",
         role: "Топ-стилист",
         exp: "Опыт 8 лет",
-        image: "/md-salon/images/masters/elena.jpg",
+        image: "/images/masters/elena.jpg",
     },
     {
         name: "Марина",
