@@ -9,25 +9,25 @@ const masters = [
         name: "Елена",
         role: "Топ-стилист",
         exp: "Опыт 8 лет",
-        image: "https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?w=400&h=500&fit=crop",
+        image: "/images/masters/elena.jpg",
     },
     {
         name: "Марина",
         role: "Колорист",
         exp: "Опыт 5 лет",
-        image: "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&h=500&fit=crop",
+        image: "/images/masters/marina.jpg",
     },
     {
         name: "Наталья",
         role: "Мастер маникюра",
         exp: "Опыт 6 лет",
-        image: "https://images.unsplash.com/photo-1601288496920-b6154fe3626a?w=400&h=500&fit=crop",
+        image: "/images/masters/natalia.jpg",
     },
     {
         name: "Анна",
         role: "Визажист",
         exp: "Опыт 4 года",
-        image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&h=500&fit=crop",
+        image: "/images/masters/anna.jpg",
     },
 ];
 

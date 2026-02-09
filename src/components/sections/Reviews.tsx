@@ -47,7 +47,7 @@ export function Reviews() {
                 </div>
 
                 <div className="text-center">
-                    <Button variant="outline" asChild>
+                    <Button variant="outline" asChild className="w-full sm:w-auto h-auto whitespace-normal py-4">
                         <a href="https://yandex.ru/maps/org/md/162399841000/reviews/" target="_blank" rel="noopener noreferrer">
                             Читать все отзывы на Яндекс
                         </a>
