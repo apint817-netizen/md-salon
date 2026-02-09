@@ -9,25 +9,25 @@ const masters = [
         name: "Елена",
         role: "Топ-стилист",
         exp: "Опыт 8 лет",
-        image: "/images/masters/elena.jpg",
+        image: "/md-salon/images/masters/elena.jpg",
     },
     {
         name: "Марина",
         role: "Колорист",
         exp: "Опыт 5 лет",
-        image: "/images/masters/marina.jpg",
+        image: "/md-salon/images/masters/marina.jpg",
     },
     {
         name: "Наталья",
         role: "Мастер маникюра",
         exp: "Опыт 6 лет",
-        image: "/images/masters/natalia.jpg",
+        image: "/md-salon/images/masters/natalia.jpg",
     },
     {
         name: "Анна",
         role: "Визажист",
         exp: "Опыт 4 года",
-        image: "/images/masters/anna.jpg",
+        image: "/md-salon/images/masters/anna.jpg",
     },
 ];
 
