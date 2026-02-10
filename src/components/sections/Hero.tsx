@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { BookingModal } from "@/components/features/BookingModal";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { BASE_PATH } from "@/lib/constants";
 
 export function Hero() {
     const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -27,7 +28,7 @@ export function Hero() {
                 <div className="absolute inset-0 z-0">
                     <div className="absolute inset-0 bg-black/60 z-10" />
                     <img
-                        src="/images/salon-hero.jpg"
+                        src={`${BASE_PATH}/images/salon-hero.jpg`}
                         alt="Salon Background"
                         className="w-full h-full object-cover opacity-80"
                     />

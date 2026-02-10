@@ -5,15 +5,16 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { BASE_PATH } from "@/lib/constants";
 
 // Фотографии работ салона
 const portfolioItems = [
-    { id: 1, src: "/images/portfolio/work-1.jpg", category: "hair" },
-    { id: 2, src: "/images/portfolio/work-2.jpg", category: "nails" },
-    { id: 3, src: "/images/portfolio/work-3.jpg", category: "hair" },
-    { id: 4, src: "/images/portfolio/work-4.jpg", category: "makeup" },
-    { id: 5, src: "/images/portfolio/work-5.jpg", category: "nails" },
-    { id: 6, src: "/images/portfolio/work-6.jpg", category: "hair" },
+    { id: 1, src: `${BASE_PATH}/images/portfolio/work-1.jpg`, category: "hair" },
+    { id: 2, src: `${BASE_PATH}/images/portfolio/work-2.jpg`, category: "nails" },
+    { id: 3, src: `${BASE_PATH}/images/portfolio/work-3.jpg`, category: "hair" },
+    { id: 4, src: `${BASE_PATH}/images/portfolio/work-4.jpg`, category: "makeup" },
+    { id: 5, src: `${BASE_PATH}/images/portfolio/work-5.jpg`, category: "nails" },
+    { id: 6, src: `${BASE_PATH}/images/portfolio/work-6.jpg`, category: "hair" },
 ];
 
 export function Portfolio() {

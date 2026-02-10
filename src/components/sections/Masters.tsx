@@ -3,31 +3,32 @@
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { motion } from "framer-motion";
+import { BASE_PATH } from "@/lib/constants";
 
 const masters = [
     {
         name: "Елена",
         role: "Топ-стилист",
         exp: "Опыт 8 лет",
-        image: "/images/masters/elena.jpg",
+        image: `${BASE_PATH}/images/masters/elena.jpg`,
     },
     {
         name: "Марина",
         role: "Колорист",
         exp: "Опыт 5 лет",
-        image: "/md-salon/images/masters/marina.jpg",
+        image: `${BASE_PATH}/images/masters/marina.jpg`,
     },
     {
         name: "Наталья",
         role: "Мастер маникюра",
         exp: "Опыт 6 лет",
-        image: "/md-salon/images/masters/natalia.jpg",
+        image: `${BASE_PATH}/images/masters/natalia.jpg`,
     },
     {
         name: "Анна",
         role: "Визажист",
         exp: "Опыт 4 года",
-        image: "/md-salon/images/masters/anna.jpg",
+        image: `${BASE_PATH}/images/masters/anna.jpg`,
     },
 ];
 
