@@ -11,11 +11,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useBooking } from "@/components/providers/BookingProvider";
 
 const navLinks = [
-    { name: "Услуги", href: "#services" },
-    { name: "Портфолио", href: "#portfolio" },
-    { name: "Мастера", href: "#masters" },
-    { name: "Отзывы", href: "#reviews" },
-    { name: "Контакты", href: "#contacts" },
+    { name: "Главная", href: "/" },
+    { name: "Услуги", href: "/services" },
+    { name: "Мастера", href: "/team" },
+    { name: "Портфолио", href: "/portfolio" },
+    { name: "Отзывы", href: "/reviews" },
+    { name: "Контакты", href: "/#contacts" },
 ];
 
 export function Header() {

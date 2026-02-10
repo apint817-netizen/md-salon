@@ -6,19 +6,15 @@ import { Container } from "@/components/ui/Container";
 import { BookingModal } from "@/components/features/BookingModal";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { BASE_PATH } from "@/lib/constants";
 
 export function Hero() {
     const [isBookingOpen, setIsBookingOpen] = useState(false);
 
-    const scrollToServices = () => {
-        document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
-    };
-
     const handleBookingClick = () => {
-        scrollToServices();
-        // Открываем модальное окно с небольшой задержкой после начала прокрутки
-        setTimeout(() => setIsBookingOpen(true), 500);
+        // Открываем модальное окно с небольшой задержкой
+        setTimeout(() => setIsBookingOpen(true), 100);
     };
 
     return (
@@ -61,10 +57,12 @@ export function Hero() {
                             <Button
                                 variant="outline"
                                 size="lg"
+                                asChild
                                 className="w-full sm:w-auto text-base backdrop-blur-sm bg-white/10 border-white/20 text-white hover:bg-white/20"
-                                onClick={scrollToServices}
                             >
-                                Наши услуги
+                                <Link href="/services">
+                                    Наши услуги
+                                </Link>
                             </Button>
                         </div>
 

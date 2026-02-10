@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Star } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 
 const reviews = [
     {
@@ -47,11 +48,18 @@ export function Reviews() {
                 </div>
 
                 <div className="text-center">
-                    <Button variant="outline" asChild className="w-full sm:w-auto h-auto whitespace-normal py-4">
-                        <a href="https://yandex.ru/maps/org/md/162399841000/reviews/" target="_blank" rel="noopener noreferrer">
-                            Читать все отзывы на Яндекс
-                        </a>
-                    </Button>
+                    <div className="flex flex-col sm:flex-row justify-center gap-4">
+                        <Button asChild variant="outline" className="w-full sm:w-auto border-slate-300 text-slate-700 hover:bg-slate-50">
+                            <Link href="/reviews">
+                                Больше отзывов
+                            </Link>
+                        </Button>
+                        <Button variant="ghost" asChild className="w-full sm:w-auto text-slate-500 hover:text-slate-900">
+                            <a href="https://yandex.ru/maps/org/md/162399841000/reviews/" target="_blank" rel="noopener noreferrer">
+                                На Яндекс.Картах
+                            </a>
+                        </Button>
+                    </div>
                 </div>
             </Container>
         </Section>

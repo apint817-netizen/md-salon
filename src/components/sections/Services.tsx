@@ -2,6 +2,8 @@
 
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Scissors, Palette, Sparkles, UserCheck } from "lucide-react";
 
@@ -43,7 +45,7 @@ export function Services() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                     {services.map((service, index) => (
                         <motion.div
                             key={service.title}
@@ -61,6 +63,14 @@ export function Services() {
                             <div className="text-[var(--color-gold-600)] font-semibold">{service.price}</div>
                         </motion.div>
                     ))}
+                </div>
+
+                <div className="text-center">
+                    <Button asChild variant="outline" size="lg" className="border-slate-300 text-slate-700 hover:bg-slate-50">
+                        <Link href="/services">
+                            Смотреть весь прайс
+                        </Link>
+                    </Button>
                 </div>
             </Container>
         </Section>

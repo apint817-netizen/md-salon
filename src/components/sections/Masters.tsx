@@ -2,6 +2,8 @@
 
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { BASE_PATH } from "@/lib/constants";
 
@@ -43,7 +45,7 @@ export function Masters() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                     {masters.map((master, index) => (
                         <motion.div
                             key={master.name}
@@ -67,6 +69,14 @@ export function Masters() {
                             <p className="text-[var(--color-gold-600)] font-medium">{master.role}</p>
                         </motion.div>
                     ))}
+                </div>
+
+                <div className="text-center">
+                    <Button asChild variant="outline" size="lg" className="border-slate-300 text-slate-700 hover:bg-slate-50">
+                        <Link href="/team">
+                            Познакомиться со всей командой
+                        </Link>
+                    </Button>
                 </div>
             </Container>
         </Section>

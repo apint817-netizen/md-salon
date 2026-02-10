@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { BASE_PATH } from "@/lib/constants";
@@ -28,7 +30,7 @@ export function Portfolio() {
                     <p className="text-slate-600">Вдохновение и безупречный результат.</p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
                     {portfolioItems.map((item, index) => (
                         <motion.div
                             key={item.id}
@@ -49,6 +51,14 @@ export function Portfolio() {
                             </div>
                         </motion.div>
                     ))}
+                </div>
+
+                <div className="text-center">
+                    <Button asChild variant="outline" size="lg" className="border-slate-300 text-slate-700 hover:bg-slate-50">
+                        <Link href="/portfolio">
+                            Смотреть все работы
+                        </Link>
+                    </Button>
                 </div>
             </Container>
 
