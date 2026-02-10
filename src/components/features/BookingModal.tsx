@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { X, Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -9,11 +9,19 @@ import { cn } from "@/lib/utils";
 interface BookingModalProps {
     isOpen: boolean;
     onClose: () => void;
+    initialService?: string;
 }
 
-export function BookingModal({ isOpen, onClose }: BookingModalProps) {
+export function BookingModal({ isOpen, onClose, initialService }: BookingModalProps) {
     const [step, setStep] = useState<"form" | "success">("form");
     const [isLoading, setIsLoading] = useState(false);
+    const [selectedService, setSelectedService] = useState(initialService || "Стрижка");
+
+    useEffect(() => {
+        if (isOpen && initialService) {
+            setSelectedService(initialService);
+        }
+    }, [isOpen, initialService]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -99,11 +107,19 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
                                             <label className="block text-sm font-medium text-slate-700 mb-1">
                                                 Услуга
                                             </label>
-                                            <select className="w-full px-4 py-2 rounded-md border border-slate-300 focus:border-[var(--color-gold-500)] focus:ring-1 focus:ring-[var(--color-gold-500)] outline-none transition-all bg-white">
+                                            <select
+                                                className="w-full px-4 py-2 rounded-md border border-slate-300 focus:border-[var(--color-gold-500)] focus:ring-1 focus:ring-[var(--color-gold-500)] outline-none transition-all bg-white"
+                                                value={selectedService}
+                                                onChange={(e) => setSelectedService(e.target.value)}
+                                            >
                                                 <option>Стрижка</option>
                                                 <option>Окрашивание</option>
                                                 <option>Маникюр/Педикюр</option>
                                                 <option>Уход за волосами</option>
+                                                {/* Add options that might come from hot slots dynamically or handle generically */}
+                                                {!["Стрижка", "Окрашивание", "Маникюр/Педикюр", "Уход за волосами"].includes(selectedService) && (
+                                                    <option>{selectedService}</option>
+                                                )}
                                             </select>
                                         </div>
 

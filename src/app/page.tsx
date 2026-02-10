@@ -7,12 +7,14 @@ import { Portfolio } from "@/components/sections/Portfolio";
 import { Masters } from "@/components/sections/Masters";
 import { Reviews } from "@/components/sections/Reviews";
 import { Contact } from "@/components/sections/Contact";
+import { HotSlots } from "@/components/features/HotSlots";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-stone-50">
       <Header />
       <Hero />
+      <HotSlots />
       <Services />
       <Portfolio />
       <Masters />
