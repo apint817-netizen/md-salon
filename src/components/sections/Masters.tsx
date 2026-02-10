@@ -7,34 +7,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { BASE_PATH } from "@/lib/constants";
 
-const masters = [
-    {
-        name: "Елена",
-        role: "Топ-стилист",
-        exp: "Опыт 8 лет",
-        image: `${BASE_PATH}/images/masters/elena.jpg`,
-    },
-    {
-        name: "Марина",
-        role: "Колорист",
-        exp: "Опыт 5 лет",
-        image: `${BASE_PATH}/images/masters/marina.jpg`,
-    },
-    {
-        name: "Наталья",
-        role: "Мастер маникюра",
-        exp: "Опыт 6 лет",
-        image: `${BASE_PATH}/images/masters/natalia.jpg`,
-    },
-    {
-        name: "Анна",
-        role: "Визажист",
-        exp: "Опыт 4 года",
-        image: `${BASE_PATH}/images/masters/anna.jpg`,
-    },
-];
+interface MastersProps {
+    masters: any[];
+}
 
-export function Masters() {
+export function Masters({ masters = [] }: MastersProps) {
+    const displayMasters = masters.slice(0, 4);
     return (
         <Section id="masters" className="bg-stone-50">
             <Container>
@@ -46,9 +24,9 @@ export function Masters() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                    {masters.map((master, index) => (
+                    {displayMasters.map((master, index) => (
                         <motion.div
-                            key={master.name}
+                            key={master._id || index}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -57,12 +35,12 @@ export function Masters() {
                         >
                             <div className="relative mb-6 mx-auto w-48 h-48 sm:w-full sm:h-auto sm:aspect-[3/4] overflow-hidden rounded-lg shadow-md">
                                 <img
-                                    src={master.image}
+                                    src={master.imageUrl || "/images/placeholder.jpg"}
                                     alt={master.name}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-                                    <span className="text-white font-medium">{master.exp}</span>
+                                    <span className="text-white font-medium">{master.experience}</span>
                                 </div>
                             </div>
                             <h3 className="text-xl font-bold text-slate-900">{master.name}</h3>

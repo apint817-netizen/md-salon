@@ -6,25 +6,12 @@ import { Star } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 
-const reviews = [
-    {
-        name: "Екатерина В.",
-        text: "Лучший салон в районе! Делала сложное окрашивание у Елены — результат превзошел ожидания. Волосы живые и блестящие.",
-        rating: 5,
-    },
-    {
-        name: "Ольга С.",
-        text: "Очень уютная атмосфера и вежливый персонал. Маникюр держится уже 3 недели без сколов. Рекомендую!",
-        rating: 5,
-    },
-    {
-        name: "Анастасия К.",
-        text: "Хожу сюда всей семьей. Муж стрижется, я на уходы. Всегда предлагают вкусный кофе и найти время не проблема.",
-        rating: 5,
-    },
-];
+interface ReviewsProps {
+    reviews: any[];
+}
 
-export function Reviews() {
+export function Reviews({ reviews = [] }: ReviewsProps) {
+    const displayReviews = reviews.slice(0, 3);
     return (
         <Section id="reviews" className="bg-white">
             <Container>
@@ -34,8 +21,8 @@ export function Reviews() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                    {reviews.map((review, index) => (
-                        <div key={index} className="bg-slate-50 p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col">
+                    {displayReviews.map((review, index) => (
+                        <div key={review._id || index} className="bg-slate-50 p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col">
                             <div className="flex gap-1 text-[var(--color-gold-500)] mb-4">
                                 {[...Array(review.rating)].map((_, i) => (
                                     <Star key={i} className="w-5 h-5 fill-current" />

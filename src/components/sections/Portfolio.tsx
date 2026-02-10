@@ -10,17 +10,13 @@ import { X } from "lucide-react";
 import { BASE_PATH } from "@/lib/constants";
 
 // Фотографии работ салона
-const portfolioItems = [
-    { id: 1, src: `${BASE_PATH}/images/portfolio/work-1.jpg`, category: "hair" },
-    { id: 2, src: `${BASE_PATH}/images/portfolio/work-2.jpg`, category: "nails" },
-    { id: 3, src: `${BASE_PATH}/images/portfolio/work-3.jpg`, category: "hair" },
-    { id: 4, src: `${BASE_PATH}/images/portfolio/work-4.jpg`, category: "makeup" },
-    { id: 5, src: `${BASE_PATH}/images/portfolio/work-5.jpg`, category: "nails" },
-    { id: 6, src: `${BASE_PATH}/images/portfolio/work-6.jpg`, category: "hair" },
-];
+interface PortfolioProps {
+    portfolioItems: any[];
+}
 
-export function Portfolio() {
+export function Portfolio({ portfolioItems = [] }: PortfolioProps) {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const displayItems = portfolioItems.slice(0, 6);
 
     return (
         <Section id="portfolio" className="bg-white">
@@ -31,19 +27,19 @@ export function Portfolio() {
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
-                    {portfolioItems.map((item, index) => (
+                    {displayItems.map((item, index) => (
                         <motion.div
-                            key={item.id}
+                            key={item._id || index}
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
                             className="relative aspect-square overflow-hidden rounded-xl cursor-pointer group"
-                            onClick={() => setSelectedImage(item.src)}
+                            onClick={() => setSelectedImage(item.imageUrl)}
                         >
                             <img
-                                src={item.src}
-                                alt={`Portfolio ${item.id}`}
+                                src={item.imageUrl}
+                                alt={`Portfolio ${index}`}
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">

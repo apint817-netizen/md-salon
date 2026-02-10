@@ -7,34 +7,29 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Scissors, Palette, Sparkles, UserCheck } from "lucide-react";
 
-const services = [
-    {
-        icon: Scissors,
-        title: "Стрижки",
-        description: "Женские, мужские и детские стрижки любой сложности. Подбор формы под тип лица.",
-        price: "от 1500 ₽",
-    },
-    {
-        icon: Palette,
-        title: "Окрашивание",
-        description: "Сложные техники: AirTouch, Balayage, Shatush. Бережное отношение к волосам.",
-        price: "от 4000 ₽",
-    },
-    {
-        icon: Sparkles,
-        title: "Ногтевой сервис",
-        description: "Маникюр, педикюр, покрытие лаком и гель-лаком. Стерильные инструменты.",
-        price: "от 1200 ₽",
-    },
-    {
-        icon: UserCheck,
-        title: "Уход и лечение",
-        description: "Восстановление структуры волос, спа-уходы и профессиональные маски.",
-        price: "от 2000 ₽",
-    },
-];
+interface ServiceProps {
+    services: any[];
+}
 
-export function Services() {
+export function Services({ services = [] }: ServiceProps) {
+    // Map category to icon
+    const getIcon = (category: string) => {
+        switch (category) {
+            case 'hair': return Scissors;
+            case 'color': return Palette;
+            case 'nails': return Sparkles;
+            case 'care': return UserCheck;
+            default: return Scissors;
+        }
+    };
+
+    // We need to pick 4 representative services for the homepage
+    // Or just show 4 items from the list.
+    // Let's take 4 items that have distinct categories if possible.
+    const displayServices = services.slice(0, 4).map(s => ({
+        ...s,
+        icon: getIcon(s.category)
+    }));
     return (
         <Section id="services" className="bg-stone-50">
             <Container>
@@ -46,9 +41,9 @@ export function Services() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                    {services.map((service, index) => (
+                    {displayServices.map((service, index) => (
                         <motion.div
-                            key={service.title}
+                            key={service._id || index}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
